@@ -1,0 +1,28 @@
+public class Radix_Sort {
+
+	public void radix (int[]Arreglo) {
+		int x,i,j;
+		for(x=Integer.SIZE-1;x>=0;x--){
+			
+			int aux[]=new int[Arreglo.length];
+			j=0;
+			
+			for(i=0;i<Arreglo.length;i++) {
+				boolean move = Arreglo[i] << x >=0;
+				
+				if(x==0 ? !move:move) {
+					aux[j]=Arreglo[i];
+					j++;
+				}else {
+					Arreglo[i-j]=Arreglo[i];
+				}
+			}
+			
+			for(i=j;i<aux.length;i++){
+				aux[i]=Arreglo[i-j];
+			}
+			
+			Arreglo=aux;
+		}
+	}
+}
